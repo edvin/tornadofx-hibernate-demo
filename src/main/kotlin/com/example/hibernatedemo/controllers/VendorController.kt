@@ -24,7 +24,7 @@ class VendorService : Controller() {
     }
 
     fun listVendors() = withTransaction {
-        (createQuery("from Vendor").list() as List<Vendor>).observable()
+        createQuery("from Vendor", Vendor::class.java).list().observable()
     }
 
     fun saveVendor(vendor: Vendor) = withTransaction {
